@@ -2,13 +2,28 @@
 // script('shareviewer', 'admin');
 style('shareviewer', 'admin');
 ?>
-<form class="section default-settings" id="frmShareViewerAdmin">
+<form class="section" id="frmShareViewerAdmin">
 
   <h2><?php p($l->t('Share Viewer')) ?></h2>
 
   <p class="settings-hint">
     <?php p($l->t('Visibility of the shares, users can:')); ?>
   </p>
+
+
+	<?php
+	foreach ($_['categories'] as $category => $data) {
+		?>
+		<p>
+			<input id="survey_client_<?php p($category); ?>" name="survey_client_<?php p($category); ?>"
+				   type="checkbox" class="checkbox survey_client_category" value="1" <?php if ($data['enabled']): ?> checked="checked"<?php endif; ?> />
+			<label for="survey_client_<?php p($category); ?>"><?php print_unescaped($data['displayName']); ?></label>
+		</p>
+		<?php
+	}
+	?>
+
+
 
   <table class="grid shareviewersettings">
     <thead>
@@ -18,22 +33,25 @@ style('shareviewer', 'admin');
       </tr>
     </thead>
     <tbody>
+		<?php foreach ($_['visibility'] as $data): ?>
+
       <tr>
         <td class="small">
-          <input type="radio" name="share_viewer_visibility" value="none" id="share_viewer_visibility_none" 
-            <?php if ($_['visibility']==='none'): ?>  checked="checked"<?php endif; ?> />
+          <input type="radio" name="share_viewer_visibility" value="none" id="share_viewer_visibility_<?php p($data); ?>" 
+            <?php if ($_['visibility']===$data): ?>  checked="checked"<?php endif; ?> />
         </td>
         <td>
           <?php p($l->t('not see any shared objects')) ?>
         </td>
       </tr>
+		<?php endforeach; ?>
       <tr>
         <td class="small">
           <input type="radio" name="share_viewer_visibility" value="owned" id="share_viewer_visibility_owned" 
             <?php if ($_['visibility']==='owned'): ?>  checked="checked"<?php endif; ?> />
         </td>
         <td>
-          <?php p($l->t('see shares on owned objects')) ?>
+          <?php p($l->t('see shares on owned objects')); p($data); ?>
         </td>
       </tr>
       <tr>
