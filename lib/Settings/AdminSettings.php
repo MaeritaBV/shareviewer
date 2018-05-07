@@ -44,7 +44,15 @@ class AdminSettings implements ISettings {
   public function getForm() {
     return new TemplateResponse(
       'shareviewer',
-      'admin'
+      'admin',
+      [
+        'visibility' => [
+                          'none',
+                          'owned',
+                          'ownedandshared',
+                          'all'
+                        ]
+      ]
   //    [
   //      'wopi_url' => $this->config->getAppValue('richdocuments', 'wopi_url'),
   //      'edit_groups' => $this->config->getAppValue('richdocuments', 'edit_groups'),
