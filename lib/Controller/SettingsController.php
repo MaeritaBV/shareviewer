@@ -99,7 +99,7 @@ class SettingsController extends Controller {
 
     $this->config->setAppValue(
       'shareviewer',
-      'shareviewer_visibility',
+      'visibility',
       $visibility
     );
 
