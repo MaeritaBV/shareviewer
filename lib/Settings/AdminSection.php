@@ -62,4 +62,4 @@ class AdminSection implements ISection {
     return 80;
   }
 
-}
+} // class AdminSection implements ISection
