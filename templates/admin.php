@@ -22,7 +22,7 @@
       <input type="radio" name="share_viewer_visibility" value="ownedandshared" id="share_viewer_visibility_ownedandshared"
            <?php print_unescaped($_['visibility']=='ownedandshared' ? 'checked="checked"' : '') ?> 
            />
-      <label for="share_viewer_visibility_owned+shared"><?php p($l->t('see shares on owned objects and those shared with the user')) ?></label><br>
+      <label for="share_viewer_visibility_ownedandshared"><?php p($l->t('see shares on owned objects and those shared with the user')) ?></label><br>
     </p>
     <p>
       <input type="radio" name="share_viewer_visibility" value="all" id="share_viewer_visibility_all"
