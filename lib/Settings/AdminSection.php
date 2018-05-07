@@ -60,6 +60,6 @@ class AdminSection implements ISection {
    */
   public function getPriority() {
     return 80;
-  }
+  } // public function getPriority()
 
 } // class AdminSection implements ISection
