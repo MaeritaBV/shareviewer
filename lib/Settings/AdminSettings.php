@@ -33,11 +33,21 @@ class AdminSettings implements ISettings {
   /** @var IConfig */
   private $config;
 
+  /** @var IL10N */
+  protected $l10n;
+
   /**
    * @param IConfig $config
    */
-  public function __construct(IConfig $config) {
+  /**
+   * @param IConfig $config
+   * @param IL10N $l10n
+   * @param IManager $manager
+   * @param UserSettings $userSettings
+   */
+  public function __construct(IConfig $config, IL10N $l10n) {
     $this->config = $config;
+    $this->l10n = $l10n;
   }
 
   /**
@@ -49,10 +59,10 @@ class AdminSettings implements ISettings {
       'admin',
       [
         'visibilitytypes' => [
-                               'none' => 'not see any shared objects',
-                               'owned' => 'see shares on owned objects',
-                               'ownedandshared' => 'see shares on owned objects and those shared with the user',
-                               'all' => 'see all shared objects'
+                               'none' => $this->l10n->t('not see any shared objects'),
+                               'owned' => $this->l10n->t('see shares on owned objects'),
+                               'ownedandshared' => $this->l10n->t('see shares on owned objects and those shared with the user'),
+                               'all' => $this->l10n->t('see all shared objects')
                              ]
       ]
     );
