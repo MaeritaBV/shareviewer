@@ -78,7 +78,7 @@ class AdminSection implements IIconSection {
    * @returns string
    */
   public function getIcon() {
-    return $this->url->imagePath('shareviewer', 'app.svg');
+    return $this->url->imagePath('core', 'actions/share.svg');
   }
 
 } // class AdminSection implements IIconSection
