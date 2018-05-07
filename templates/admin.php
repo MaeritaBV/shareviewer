@@ -1,5 +1,5 @@
 <?php
-// script('shareviewer', 'admin');
+script('shareviewer', 'admin');
 style('shareviewer', 'admin');
 ?>
 <form class="section" id="frmShareViewerAdmin">
