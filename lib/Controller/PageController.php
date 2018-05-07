@@ -67,17 +67,17 @@ class PageController extends Controller {
     if (!\OC_User::isAdminUser($this->userId)) {
       $shareListSQL .= "AND (";
 
-      if ($this->config->getAppValue('share_manager', 'visibility') === 'all') {
+      if ($this->config->getAppValue('shareviewer', 'visibility') === 'all') {
         $shareListSQL .= "TRUE";
-      } elseif ($this->config->getAppValue('share_manager', 'visibility') === 'owned' ||
-                $this->config->getAppValue('share_manager', 'visibility') === 'ownedandshared') {
+      } elseif ($this->config->getAppValue('shareviewer', 'visibility') === 'owned' ||
+                $this->config->getAppValue('shareviewer', 'visibility') === 'ownedandshared') {
         /**
          * Show shares of owned objects and own shares
          */
         $shareListSQL .= "`*PREFIX*share`.uid_owner = :userid " .
                          "OR `*PREFIX*share`.uid_initiator = :userid ";
  
-        if ($this->config->getAppValue('share_manager', 'visibility') == 'ownedandshared') {
+        if ($this->config->getAppValue('shareviewer', 'visibility') == 'ownedandshared') {
           /**
            * Show shares of objects that have been shared with the user
            * directly by name or via group membership
@@ -91,13 +91,13 @@ class PageController extends Controller {
                                              "OR sh1.share_with IN (SELECT gu1.gid " .
                                                                    "FROM `*PREFIX*group_user` gu1 " .
                                                                    "WHERE gu1.uid = :userid))) ";
-        } // if ($this->config->getAppValue('share_manager', 'visibility') == 'ownedandshared')
+        } // if ($this->config->getAppValue('shareviewer', 'visibility') == 'ownedandshared')
 
-      } elseif ($this->config->getAppValue('share_manager', 'visibility', 'none') === 'none') {
+      } elseif ($this->config->getAppValue('shareviewer', 'visibility', 'none') === 'none') {
         $shareListSQL .= "FALSE";
       } else {
         $shareListSQL .= "FALSE";
-      } // if ($this->config->getAppValue('share_manager', 'visibility') === 'all')
+      } // if ($this->config->getAppValue('shareviewer', 'visibility') === 'all')
 
       $shareListSQL .= ") ";
     } // if (!\OC_User::isAdminUser($this->userId))
