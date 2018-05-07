@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+  <id>shareviewer</id>
+  <name>Share Viewer</name>
+  <summary>Overview of shared files and folders</summary>
+  <description><![CDATA[Overview of shared files and folders within the nextCloud instance.]]></description>
+  <version>0.0.2</version>
+  <licence>agpl</licence>
+  <author mail="e.beukhof@maerita.nl" homepage="https://www.maerita.nl">Erwin Beukhof</author>
+  <namespace>ShareViewer</namespace>
+  <category>tools</category>
+  <bugs>https://www.maerita.nl/issuetracker</bugs>
+
+  <dependencies>
+    <nextcloud min-version="12" max-version="13"/>
+  </dependencies>
+
+  <settings>
+    <admin>OCA\ShareViewer\Settings\AdminSettings</admin>
+    <admin-section>OCA\ShareViewer\Settings\AdminSection</admin-section>
+  </settings>
+
+  <navigations>
+    <navigation>
+      <name>Share Viewer</name>
+      <route>shareviewer.page.index</route>
+    </navigation>
+  </navigations>
+</info>

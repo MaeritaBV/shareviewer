@@ -1,0 +1,25 @@
+#app-content {
+  padding-left: 25px;
+}
+#app-content-header {
+  margin-top:    30px;
+  margin-left:   0px;
+  margin-bottom: 20px;
+  color:         #545454;
+}
+tr.headerRow {
+  background-color: lightgrey;
+}
+tr.odd {
+  background-color: #FFFFFF;
+}
+tr.even {
+  background-color: #E9E9E9;
+}
+td.headerRow {
+  white-space: nowrap;
+	font-weight: bold;
+}
+td.middleCell, td.rightCell {
+  border-left: 1px solid black;
+}
