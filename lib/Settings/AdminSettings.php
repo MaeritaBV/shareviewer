@@ -32,12 +32,14 @@ class AdminSettings implements ISettings {
 
   /** @var IConfig */
   private $config;
+
   /**
    * @param IConfig $config
    */
   public function __construct(IConfig $config) {
     $this->config = $config;
   }
+
   /**
    * @return TemplateResponse
    */
@@ -46,30 +48,23 @@ class AdminSettings implements ISettings {
       'shareviewer',
       'admin',
       [
-        'visibility' => [
-                          'none',
-                          'owned',
-                          'ownedandshared',
-                          'all'
-                        ]
+        'visibilitytypes' => [
+                               'none' => 'not see any shared objects',
+                               'owned' => 'see shares on owned objects',
+                               'ownedandshared' => 'see shares on owned objects and those shared with the user',
+                               'all' => 'see all shared objects'
+                             ]
       ]
-  //    [
-  //      'wopi_url' => $this->config->getAppValue('richdocuments', 'wopi_url'),
-  //      'edit_groups' => $this->config->getAppValue('richdocuments', 'edit_groups'),
-  //      'use_groups' => $this->config->getAppValue('richdocuments', 'use_groups'),
-  //      'doc_format' => $this->config->getAppValue('richdocuments', 'doc_format'),
-  //      'external_apps' => $this->config->getAppValue('richdocuments', 'external_apps'),
-  //      'canonical_webroot' => $this->config->getAppValue('richdocuments', 'canonical_webroot'),
-  //    ],
-  //  'blank'
     );
   }
+
   /**
    * @return string the section ID, e.g. 'sharing'
    */
   public function getSection() {
     return 'shareviewer';
   }
+
   /**
    * @return int whether the form should be rather on the top or bottom of
    * the admin section. The forms are arranged in ascending order of the
