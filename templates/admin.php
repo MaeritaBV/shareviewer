@@ -25,7 +25,7 @@ style('shareviewer', 'admin');
             <?php if ($_['visibility']===$visibilityType): ?>  checked="checked"<?php endif; ?> />
         </td>
         <td>
-          <?php p($description); ?>
+          <?php p($description); ?>|||<?php echo OC.generateUrl('/apps/shareviewer/settingscontroller'); ?>
         </td>
       </tr>
 		<?php endforeach; ?>
