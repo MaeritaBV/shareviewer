@@ -92,15 +92,15 @@ class SettingsController extends Controller {
   }
 
   /**
-   * @param string $visibility
+   * @param string $shareviewer_visibility
    * @return DataResponse
    */
-  public function admin($visibility) {
+  public function admin($shareviewer_visibility) {
 
     $this->config->setAppValue(
       'shareviewer',
       'visibility',
-      $visibility
+      $shareviewer_visibility
     );
 
     return new DataResponse(array(
