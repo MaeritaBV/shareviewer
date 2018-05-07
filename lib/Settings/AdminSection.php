@@ -22,15 +22,24 @@
 
 namespace OCA\ShareViewer\Settings;
 
+use OCP\IURLGenerator;
 use OCP\IL10N;
-use OCP\Settings\ISection;
+use OCP\Settings\IIconSection;
 
-class AdminSection implements ISection {
+class AdminSection implements IIconSection {
+
+  /** @var IURLGenerator */
+  private $url;
 
   /** @var IL10N */
   private $l;
 
-  public function __construct(IL10N $l) {
+  /**
+   * @param IURLGenerator $url
+   * @param IL10N $l
+   */
+  public function __construct(IURLGenerator $url, IL10N $l) {
+    $this->url = $url;
     $this->l = $l;
   }
 
@@ -62,4 +71,14 @@ class AdminSection implements ISection {
     return 80;
   } // public function getPriority()
 
-} // class AdminSection implements ISection
+  /**
+   * returns the relative path to an 16*16 icon describing the section.
+   * e.g. '/core/img/places/files.svg'
+   *
+   * @returns string
+   */
+  public function getIcon() {
+    return $this->url->imagePath('shareviewer', 'app.svg');
+  }
+
+} // class AdminSection implements IIconSection
