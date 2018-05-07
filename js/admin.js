@@ -1,6 +1,6 @@
 $(document).ready(function() {
   function saveSettings() {
-    OC.msg.startSaving('#shareviewer_notifications_msg');
+    //OC.msg.startSaving('#shareviewer_notifications_msg');
     var post = $('#frmShareViewerAdmin').serialize();
 
     //$.post(OC.generateUrl('/apps/shareviewer/settings/adminsettings'), post, function(response) {
