@@ -36,11 +36,11 @@ style('shareviewer', 'admin');
 		<?php foreach ($_['visibilitytypes'] as $visibilityType => $description): ?>
       <tr>
         <td class="small">
-          <input type="radio" name="share_viewer_visibility" value="none" id="share_viewer_visibility_<?php p($visibilityType); ?>" 
+          <input type="radio" name="share_viewer_visibility" value="<?php p($visibilityType); ?>" id="share_viewer_visibility_<?php p($visibilityType); ?>" 
             <?php if ($_['visibility']===$visibilityType): ?>  checked="checked"<?php endif; ?> />
         </td>
         <td>
-          <?php p($l->t($description)) ?>
+          <?php p($l->t($description)); ?>
         </td>
       </tr>
 		<?php endforeach; ?>
