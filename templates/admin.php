@@ -2,7 +2,7 @@
 // script('shareviewer', 'admin');
 style('shareviewer', 'admin');
 ?>
-<form id="frmShareViewerAdmin">
+<form class="section default-settings" id="frmShareViewerAdmin">
 
   <h2><?php p($l->t('Share Viewer')) ?></h2>
 
