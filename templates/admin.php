@@ -10,33 +10,18 @@ style('shareviewer', 'admin');
     <?php p($l->t('Visibility of the shares, users can:')); ?>
   </p>
 
-
-	<?php
-	foreach ($_['categories'] as $category => $data) {
-		?>
-		<p>
-			<input id="survey_client_<?php p($category); ?>" name="survey_client_<?php p($category); ?>"
-				   type="checkbox" class="checkbox survey_client_category" value="1" <?php if ($data['enabled']): ?> checked="checked"<?php endif; ?> />
-			<label for="survey_client_<?php p($category); ?>"><?php print_unescaped($data['displayName']); ?></label>
-		</p>
-		<?php
-	}
-	?>
-
-
-
-  <table class="grid shareviewersettings">
+  <table class="shareviewersettings">
     <thead>
       <tr>
         <th class="small">&nbsp;</th>
-        <th><span id="activity_notifications_msg" class="msg"></span></th>
+        <th><span id="shareviewer_notifications_msg" class="msg"></span></th>
       </tr>
     </thead>
     <tbody>
 		<?php foreach ($_['visibilitytypes'] as $visibilityType => $description): ?>
       <tr>
         <td class="small">
-          <input type="radio" name="share_viewer_visibility" value="<?php p($visibilityType); ?>" id="share_viewer_visibility_<?php p($visibilityType); ?>" 
+          <input type="radio" name="shareviewer_visibility" value="<?php p($visibilityType); ?>" id="shareviewer_visibility_<?php p($visibilityType); ?>" 
             <?php if ($_['visibility']===$visibilityType): ?>  checked="checked"<?php endif; ?> />
         </td>
         <td>
@@ -44,33 +29,7 @@ style('shareviewer', 'admin');
         </td>
       </tr>
 		<?php endforeach; ?>
-      <tr>
-        <td class="small">
-          <input type="radio" name="share_viewer_visibility" value="owned" id="share_viewer_visibility_owned" 
-            <?php if ($_['visibility']==='owned'): ?>  checked="checked"<?php endif; ?> />
-        </td>
-        <td>
-          <?php p($l->t('see shares on owned objects')); p($data); ?>
-        </td>
-      </tr>
-      <tr>
-        <td class="small">
-          <input type="radio" name="share_viewer_visibility" value="ownedandshared" id="share_viewer_visibility_ownedandshared" 
-            <?php if ($_['visibility']==='ownedandshared'): ?>  checked="checked"<?php endif; ?> />
-        </td>
-        <td>
-          <?php p($l->t('see shares on owned objects and those shared with the user')) ?>
-        </td>
-      </tr>
-      <tr>
-        <td class="small">
-          <input type="radio" name="share_viewer_visibility" value="all" id="share_viewer_visibility_all" 
-            <?php if ($_['visibility']==='all'): ?>  checked="checked"<?php endif; ?> />
-        </td>
-        <td>
-          <?php p($l->t('see all shared objects')) ?>
-        </td>
-      </tr>
     </tbody>
+  </table>
 
 </form>
