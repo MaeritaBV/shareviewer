@@ -22,11 +22,11 @@
 
 namespace OCA\ShareViewer\Settings;
 
-use OCP\Settings\ISection;
+use OCP\Settings\IIconSection;
 use OCP\IURLGenerator;
 use OCP\IL10N;
 
-class AdminSection implements ISection {
+class AdminSection implements IIconSection {
 
   /** @var IURLGenerator */
   private $url;
@@ -81,4 +81,4 @@ class AdminSection implements ISection {
     return $this->url->imagePath('core', 'actions/share.svg');
   }
 
-} // class AdminSection implements ISection
+} // class AdminSection implements IIconSection
