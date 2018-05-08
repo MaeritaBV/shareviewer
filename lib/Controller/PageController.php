@@ -138,6 +138,7 @@ class PageController extends Controller {
     } // while ($shareListRow = $shareListStatement->fetch()) {
 
     $params = ['viewtype'  => $viewtype,
+               'user'      => $this->user,
                'resultset' => serialize($shareListResultSet)];
 
     return new TemplateResponse('shareviewer', 'index', $params);  // templates/index.php
