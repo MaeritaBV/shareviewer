@@ -26,9 +26,14 @@ return [
      * Main routes
      */
     [
-      'name'     => 'page#index',
-      'url'      => '/',
-      'verb'     => 'GET',
+      'name' => 'Page#index',
+      'url'  => '/',
+      'verb' => 'GET',
+    ],
+    [
+      'name' => 'Settings#admin',
+      'url'  => '/settings/admin',
+      'verb' => 'POST'
     ]
   ]
 ];
