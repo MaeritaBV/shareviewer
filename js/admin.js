@@ -1,9 +1,12 @@
 $(document).ready(function() {
   function saveSettings() {
     OC.msg.startSaving('#shareviewer_notifications_msg');
+    var baseURL = OC.generateUrl('/apps/shareviewer/settingscontroller/admin');
     var post = $('#frmShareViewerAdmin').serialize();
-alert((string)OC.generateUrl('/apps/shareviewer/settingscontroller/admin'));
-    $.post(OC.generateUrl('/apps/shareviewer/settingscontroller/admin'), post, function(response) {
+
+alert((string) baseURL);
+
+    $.post(baseURL, post, function(response) {
       OC.msg.finishedSuccess('#shareviewer_notifications_msg', response.data.message);
     });
   }
