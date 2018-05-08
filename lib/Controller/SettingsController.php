@@ -97,11 +97,11 @@ class SettingsController extends Controller {
    */
   public function admin() {
 
-    $this->config->setAppValue(
-      'shareviewer',
-      'visibility',
-      $this->request->getParam('shareviewer_visibility', false)
-    );
+    //$this->config->setAppValue(
+    //  'shareviewer',
+    //  'visibility',
+    //  $this->request->getParam('shareviewer_visibility', false)
+    //);
 
     return new DataResponse(array(
       'data'    => array(
