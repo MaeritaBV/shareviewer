@@ -25,7 +25,6 @@ namespace OCA\ShareViewer\Settings;
 use OCP\Settings\ISettings;
 use OCP\IConfig;
 use OCP\IL10N;
-use OCP\Activity\IManager;
 use OCP\AppFramework\Http\TemplateResponse;
 
 class AdminSettings implements ISettings {
@@ -36,57 +35,24 @@ class AdminSettings implements ISettings {
   /** @var IL10N */
   protected $l10n;
 
-  /** @var IManager */
-  protected $manager;
-
   /**
    * @param IConfig $config
    * @param IL10N $l10n
-   * @param IManager $manager
    */
-  public function __construct(IConfig $config, IL10N $l10n, IManager $manager) {
+  public function __construct(IConfig $config, IL10N $l10n) {
     $this->config = $config;
     $this->l10n = $l10n;
-    $this->manager = $manager;
   }
 
   /**
    * @return TemplateResponse
    */
   public function getForm() {
-
-
-
-    //$settings = $this->manager->getSettings();
-    //usort($settings, function(ISetting $a, ISetting $b) {
-    //  if ($a->getPriority() === $b->getPriority()) {
-    //    return $a->getIdentifier() > $b->getIdentifier();
-    //  }
-    //  return $a->getPriority() > $b->getPriority();
-    //});
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     return new TemplateResponse(
       'shareviewer',
       'admin',
       [
+        'visibility'      => $this->config->getAppValue('shareviewer', 'visibility', 'none'),
         'visibilitytypes' => [
                                'none' => $this->l10n->t('not see any shared objects'),
                                'owned' => $this->l10n->t('see shares on owned objects'),

@@ -22,20 +22,35 @@
 
 namespace OCA\ShareViewer\Controller;
 
-use OCP\IRequest;
-use OCP\AppFramework\Http\TemplateResponse;
-use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
+use OCP\IRequest;
+use OCP\IConfig;
+use OCA\Activity\CurrentUser;
+use OCP\AppFramework\Http\TemplateResponse;
 
 class PageController extends Controller {
 
-  private $config;
-	private $userId;
+  /** @var \OCP\IConfig */
+  protected $config;
 
-	public function __construct($AppName, IRequest $request, $userId){
-		parent::__construct($AppName, $request);
-    $this->config = \OC::$server->getConfig();
-		$this->userId = $userId;
+  /** @var string */
+  protected $user;
+
+  /**
+   * Constructor of the controller
+   *
+   * @param string $appName
+   * @param IRequest $request
+   * @param IConfig $config
+   * @param CurrentUser $currentUser
+   */
+	public function __construct($appName,
+	                            IRequest $request,
+                              IConfig $config,
+	                            CurrentUser $currentUser) {
+		parent::__construct($appName, $request);
+    $this->config = $config;
+    $this->user   = (string) $currentUser->getUID();
 	}
 
 	/**
@@ -64,7 +79,7 @@ class PageController extends Controller {
                     "WHERE " . ($viewtype === 'files'?"`*PREFIX*share`.item_type = 'file'":($viewtype === 'folders'?"`*PREFIX*share`.item_type = 'folder'":($viewtype === 'all'?"TRUE":"FALSE"))) . " " .
                       "AND (`*PREFIX*share`.expiration IS NULL OR `*PREFIX*share`.expiration >= NOW()) ";
 
-    if (!\OC_User::isAdminUser($this->userId)) {
+    if (!\OC_User::isAdminUser($this->user)) {
       $shareListSQL .= "AND (";
 
       if ($this->config->getAppValue('shareviewer', 'visibility') === 'all') {
@@ -108,7 +123,7 @@ class PageController extends Controller {
      * Prepare and execute statement
      */
     $shareListStatement = \OC::$server->getDatabaseConnection()->prepare($shareListSQL);
-    $shareListStatement->execute(array(':userid' => $this->userId));
+    $shareListStatement->execute(array(':userid' => $this->user));
 
     $shareListResultSet = array();
     while ($shareListRow = $shareListStatement->fetch()) {

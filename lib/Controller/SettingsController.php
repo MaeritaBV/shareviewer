@@ -22,19 +22,14 @@
 
 namespace OCA\ShareViewer\Controller;
 
-use OCA\Activity\CurrentUser;
-use OCA\Activity\UserSettings;
-use OCP\Activity\IExtension;
-use OCP\Activity\IManager;
-use OCP\Activity\ISetting;
 use OCP\AppFramework\Controller;
-use OCP\AppFramework\Http\DataResponse;
-use OCP\AppFramework\Http\TemplateResponse;
-use OCP\IConfig;
-use OCP\IL10N;
 use OCP\IRequest;
-use OCP\IURLGenerator;
+use OCP\IConfig;
 use OCP\Security\ISecureRandom;
+use OCA\Activity\UserSettings;
+use OCP\IL10N;
+use OCA\Activity\CurrentUser;
+use OCP\AppFramework\Http\DataResponse;
 
 class SettingsController extends Controller {
 
@@ -43,12 +38,6 @@ class SettingsController extends Controller {
 
   /** @var \OCP\Security\ISecureRandom */
   protected $random;
-
-  /** @var \OCP\IURLGenerator */
-  protected $urlGenerator;
-
-  /** @var IManager */
-  protected $manager;
 
   /** @var \OCA\Activity\UserSettings */
   protected $userSettings;
@@ -66,8 +55,6 @@ class SettingsController extends Controller {
    * @param IRequest $request
    * @param IConfig $config
    * @param ISecureRandom $random
-   * @param IURLGenerator $urlGenerator
-   * @param IManager $manager
    * @param UserSettings $userSettings
    * @param IL10N $l10n
    * @param CurrentUser $currentUser
@@ -76,16 +63,12 @@ class SettingsController extends Controller {
                               IRequest $request,
                               IConfig $config,
                               ISecureRandom $random,
-                              IURLGenerator $urlGenerator,
-                              IManager $manager,
                               UserSettings $userSettings,
                               IL10N $l10n,
                               CurrentUser $currentUser) {
     parent::__construct($appName, $request);
     $this->config = $config;
     $this->random = $random;
-    $this->urlGenerator = $urlGenerator;
-    $this->manager = $manager;
     $this->userSettings = $userSettings;
     $this->l10n = $l10n;
     $this->user = (string) $currentUser->getUID();
