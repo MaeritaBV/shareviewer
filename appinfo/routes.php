@@ -26,12 +26,12 @@ return [
      * Main routes
      */
     [
-      'name' => 'Page#index',
+      'name' => 'page#index',
       'url'  => '/',
       'verb' => 'GET',
     ],
     [
-      'name' => 'Settings#admin',
+      'name' => 'settings#admin',
       'url'  => '/settings/admin',
       'verb' => 'POST'
     ]
