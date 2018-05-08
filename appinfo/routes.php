@@ -30,5 +30,10 @@ return [
       'url'      => '/',
       'verb'     => 'GET',
     ],
+    [
+      'name'     => 'settings#admin',
+      'url'      => '/settings/admin',
+      'verb'     => 'POST'
+    ]
   ]
 ];
