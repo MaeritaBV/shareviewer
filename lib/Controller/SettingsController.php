@@ -88,7 +88,7 @@ class SettingsController extends Controller {
 
     return new DataResponse(array(
       'data'    => array(
-        'message'  => (string) $this->l10n->t('Settings have been updated.'),
+        'message'  => (string) $this->l10n->t('Settings have been updated'),
       ),
     ));
   }

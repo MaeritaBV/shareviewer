@@ -18,6 +18,7 @@
   "see shares on owned objects"                                : "gedeelde objecten zien die eigendom zijn",
   "see shares on owned objects and those shared with the user" : "gedeelde objecten zien die eigendom zijn en de objecten die met de gebruiker zijn gedeeld",
   "see all shared objects"                                     : "alle gedeelde objecten zien",
-  "Apply"                                                      : "Toepassen"
+  "Apply"                                                      : "Toepassen",
+  "Settings have been updated"                                 : "Instellingen zijn bijgewerkt"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
