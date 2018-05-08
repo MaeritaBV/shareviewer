@@ -29,11 +29,6 @@ return [
       'name'     => 'page#index',
       'url'      => '/',
       'verb'     => 'GET',
-    ],
-    [
-      'name'     => 'settings#admin',
-      'url'      => '/settings/adminsettings',
-      'verb'     => 'POST'
     ]
   ]
 ];
