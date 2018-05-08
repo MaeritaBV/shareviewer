@@ -25,7 +25,6 @@ namespace OCA\ShareViewer\Controller;
 use OCP\AppFramework\Controller;
 use OCP\IRequest;
 use OCP\IConfig;
-use OCP\Security\ISecureRandom;
 use OCA\Activity\UserSettings;
 use OCP\IL10N;
 use OCA\Activity\CurrentUser;
@@ -35,9 +34,6 @@ class SettingsController extends Controller {
 
   /** @var \OCP\IConfig */
   protected $config;
-
-  /** @var \OCP\Security\ISecureRandom */
-  protected $random;
 
   /** @var \OCA\Activity\UserSettings */
   protected $userSettings;
@@ -54,7 +50,6 @@ class SettingsController extends Controller {
    * @param string $appName
    * @param IRequest $request
    * @param IConfig $config
-   * @param ISecureRandom $random
    * @param UserSettings $userSettings
    * @param IL10N $l10n
    * @param CurrentUser $currentUser
@@ -62,13 +57,11 @@ class SettingsController extends Controller {
   public function __construct($appName,
                               IRequest $request,
                               IConfig $config,
-                              ISecureRandom $random,
                               UserSettings $userSettings,
                               IL10N $l10n,
                               CurrentUser $currentUser) {
     parent::__construct($appName, $request);
     $this->config = $config;
-    $this->random = $random;
     $this->userSettings = $userSettings;
     $this->l10n = $l10n;
     $this->user = (string) $currentUser->getUID();
@@ -88,7 +81,7 @@ class SettingsController extends Controller {
 
     return new DataResponse(array(
       'data'    => array(
-        'message'  => (string) $this->l10n->t('Settings have been updated'),
+        'message'  => (string) $this->l10n->t('Settings have been updated') . $this->request->getParam('shareviewer_visibility', false),
       ),
     ));
   }
