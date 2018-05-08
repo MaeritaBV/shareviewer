@@ -11,7 +11,6 @@ style('shareviewer', 'styles');
   <div id="app-content">
     <div id="app-content-header">
       <h2><?php p($l->t('Shared Objects') . ' : ' . $l->t($_['viewtype'])); ?></h2>
-      <?php p($_['user']); ?>
     </div>
     <div id="app-content-wrapper">
       <?php print_unescaped($this->inc('content/index')); ?>
