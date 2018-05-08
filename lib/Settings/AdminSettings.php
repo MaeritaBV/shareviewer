@@ -22,38 +22,67 @@
 
 namespace OCA\ShareViewer\Settings;
 
-use OCP\AppFramework\Http\TemplateResponse;
-use OCP\Defaults;
+use OCP\Settings\ISettings;
 use OCP\IConfig;
 use OCP\IL10N;
-use OCP\Settings\ISettings;
+use OCP\Activity\IManager;
+use OCP\AppFramework\Http\TemplateResponse;
 
 class AdminSettings implements ISettings {
 
   /** @var IConfig */
-  private $config;
+  protected $config;
 
   /** @var IL10N */
   protected $l10n;
 
-  /**
-   * @param IConfig $config
-   */
+  /** @var IManager */
+  protected $manager;
+
   /**
    * @param IConfig $config
    * @param IL10N $l10n
    * @param IManager $manager
-   * @param UserSettings $userSettings
    */
-  public function __construct(IConfig $config, IL10N $l10n) {
+  public function __construct(IConfig $config, IL10N $l10n, IManager $manager) {
     $this->config = $config;
     $this->l10n = $l10n;
+    $this->manager = $manager;
   }
 
   /**
    * @return TemplateResponse
    */
   public function getForm() {
+
+
+
+    //$settings = $this->manager->getSettings();
+    //usort($settings, function(ISetting $a, ISetting $b) {
+    //  if ($a->getPriority() === $b->getPriority()) {
+    //    return $a->getIdentifier() > $b->getIdentifier();
+    //  }
+    //  return $a->getPriority() > $b->getPriority();
+    //});
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return new TemplateResponse(
       'shareviewer',
       'admin',

@@ -32,7 +32,7 @@ return [
     ],
     [
       'name'     => 'settings#admin',
-      'url'      => '/settings/admin',
+      'url'      => '/settings/adminsettings',
       'verb'     => 'POST'
     ]
   ]
