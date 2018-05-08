@@ -4,7 +4,7 @@ $(document).ready(function() {
     var baseURL = OC.generateUrl('/apps/shareviewer/settingscontroller/admin');
     var post = $('#frmShareViewerAdmin').serialize();
 
-alert((string) baseURL);
+alert(baseURL);
 
     $.post(baseURL, post, function(response) {
       OC.msg.finishedSuccess('#shareviewer_notifications_msg', response.data.message);
