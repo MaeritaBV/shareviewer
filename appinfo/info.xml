@@ -4,8 +4,8 @@
   <id>shareviewer</id>
   <name>Share Viewer</name>
   <summary>Overview of shared files and folders</summary>
-  <description><![CDATA[Overview of shared files and folders within the nextCloud instance.]]></description>
-  <version>0.0.2</version>
+  <description><![CDATA[Overview of shared files and folders within the Nextcloud instance.]]></description>
+  <version>0.0.3</version>
   <licence>agpl</licence>
   <author mail="e.beukhof@maerita.nl" homepage="https://www.maerita.nl">Erwin Beukhof</author>
   <namespace>ShareViewer</namespace>
